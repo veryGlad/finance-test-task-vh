@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, Checkbox, Typography } from '@mui/material';
-import { IStocksInfo } from '../../types';
+import { IStocksInfo } from '../../../types';
 
 interface IStocksTableProps {
   stocksData: IStocksInfo[];
@@ -94,6 +94,11 @@ const BasicTable: React.FC<IStocksTableProps> = ({
                   <TableCell component='th' scope='row'>
                     {withCheckboxes && (
                       <Checkbox
+                        inputProps={
+                          {
+                            'data-testid': `${ticker}-checkbox`,
+                          } as React.InputHTMLAttributes<HTMLInputElement>
+                        }
                         size={'small'}
                         checked={!hiddenTickers.includes(ticker)}
                         onChange={(e) => onCheckboxChange(e, ticker)}

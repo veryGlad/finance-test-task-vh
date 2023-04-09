@@ -1,9 +1,9 @@
 import './App.css';
 import { Box, Button } from '@mui/material';
-import Header from './components/Header';
-import BasicTable from './components/BasicTable';
+import Header from './components/Header/Header';
+import BasicTable from './components/BasicTable/BasicTable';
 import Typography from '@mui/material/Typography';
-import DiscreteSlider from './components/DiscreteSlider';
+import DiscreteSlider from './components/DiscreteSlider/DiscreteSlider';
 import io from 'socket.io-client';
 import React from 'react';
 import { useAppDispatch, useAppSelector } from './store/Store';
@@ -77,7 +77,8 @@ function App() {
           <DiscreteSlider onChange={handleIntervalChange} />
           <Typography color={'#505050'} fontWeight={'bold'} marginLeft={5}>
             {' '}
-            Here you can change updating time interval
+            Here you can change updating time interval (The slider shows
+            interval in seconds)
           </Typography>
         </Box>
         <Box display={'flex'} alignItems={'center'}>
