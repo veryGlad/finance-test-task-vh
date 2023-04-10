@@ -1,14 +1,14 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import stocksInfoReducer from './BasicTableSlice'
-import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import stocksInfoReducer from './BasicTableSlice';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-const rootReducer = combineReducers({
-    stocksInfo: stocksInfoReducer
-})
+export const rootReducer = combineReducers({
+  stocksInfo: stocksInfoReducer,
+});
 
 const store = configureStore({
-    reducer: rootReducer
-})
+  reducer: rootReducer,
+});
 
 export type AppDispatch = typeof store.dispatch;
 
@@ -17,4 +17,4 @@ export type RootState = ReturnType<typeof store.getState>;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 export const useAppDispatch: () => AppDispatch = useDispatch;
 
-export default store
+export default store;

@@ -12,7 +12,7 @@ import { IStocksInfo } from '../../../types';
 interface IStocksTableProps {
   stocksData: IStocksInfo[];
   withCheckboxes: boolean;
-  onCheckboxChange: (
+  onCheckboxChange?: (
     event: React.ChangeEvent<HTMLInputElement>,
     ticker: string
   ) => void;
@@ -35,7 +35,7 @@ const BasicTable: React.FC<IStocksTableProps> = ({
   return (
     <Box marginRight={5} marginLeft={5}>
       <TableContainer component={Paper} style={{ backgroundColor: '#D3D3D3' }}>
-        <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+        <Table aria-label='simple table'>
           <TableHead>
             <TableRow>
               <TableCell width={'40px'}></TableCell>
@@ -101,7 +101,7 @@ const BasicTable: React.FC<IStocksTableProps> = ({
                         }
                         size={'small'}
                         checked={!hiddenTickers.includes(ticker)}
-                        onChange={(e) => onCheckboxChange(e, ticker)}
+                        onChange={(e) => onCheckboxChange?.(e, ticker)}
                       />
                     )}
                   </TableCell>

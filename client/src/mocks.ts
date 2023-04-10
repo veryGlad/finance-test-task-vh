@@ -20,3 +20,13 @@ export const tickersMock: IStocksInfo[] = [
     last_trade_time: '2021-04-30T11:53:21.000Z',
   },
 ];
+
+export const storeMock = {
+  stocksInfo: {
+    tickers: tickersMock,
+    filteredTickers: tickersMock,
+    isFiltering: false,
+    hiddenTickers: [],
+    updateInterval: 5000,
+  },
+};

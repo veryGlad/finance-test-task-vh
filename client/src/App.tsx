@@ -37,11 +37,11 @@ function App() {
     return () => {
       socket.disconnect();
     };
-  }, []);
+  }, [dispatch, socket]);
 
   const tickersForDisplaying = React.useMemo(
     () => (isFiltering ? tickers : filteredTickers),
-    [tickers, hiddenTickers, isFiltering]
+    [tickers, isFiltering, filteredTickers]
   );
 
   const handleChangeFiltering = () => {
@@ -53,7 +53,6 @@ function App() {
     ticker: string
   ) => {
     dispatch(updateHiddenTicker({ ticker, isHidden: !event.target.checked }));
-    console.log(event.target.checked);
   };
 
   const handleIntervalChange = (_event: Event, value: number) => {
@@ -67,8 +66,8 @@ function App() {
       <Box
         marginTop={2}
         marginBottom={2}
-        marginRight={5}
-        marginLeft={5.5}
+        marginRight={5.125}
+        marginLeft={5.125}
         display={'flex'}
         alignItems={'center'}
         justifyContent={'space-between'}
